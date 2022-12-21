@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script type="text/javascript">
+	 function countWords() 
+	 {
+		var text = document.getElementById("inputField").value;
+		var numWords = 0;
+        for (var i = 0; i < text.length; i++) {
+            var currentCharacter = text[i];
+            if (currentCharacter == " ") {
+                numWords += 1;
+            }
+        }
+		numWords += 1;
+        document.getElementById("show").innerHTML = numWords;
+    }
+	function countChars(countfrom,displayto) 
+	{
+		var len = document.getElementById(countfrom).value.length;
+		document.getElementById(displayto).innerHTML = len;
+	}
+	<span id="charcount">0</span>
+	
+	</script>
+</head>
+<body>
+	<form onsubmit="takevalue()">
+	<table>
+	<tr>	<td>Roll Number></td>
+			<td><input type="text" name="roll" placeholder = "Enter Roll Number", id="roll"></td>
+	
+	<tr>    <td>Upload Image</td>
+			<td><input type="file" id="image_name" accept="image/png, image/jpg"/></td>
+	</tr>
+	<tr>    <td>Text Box</td>
+			<td><textarea id="inputField" rows=10 cols="60" onkeyup="countChars('data','charcount');" onkeydown="countChars('data','charcount');" onmouseout="countChars('data','charcount');"></textarea>
+			<span id="charcount">0</span> characters entered.</td>
+	</tr>
+	<tr>	<td><input type="submit" value="submit"></td>
+</body>
+
+</form>
+</html>
